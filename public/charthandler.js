@@ -49,7 +49,7 @@ dromedaryChartHandler = function () {
         console.log('Failed to fetch /increment?color=' + colorToInc);
       } else if (data.hasOwnProperty('error')) {
         console.log('/increment error: ' + data.error);
-        updateLastApiMessage('Vote for ' + colorToInc +
+        updateLastApiMessage('Do Vote for ' + colorToInc +
             ' failed: ' + data.error);
       } else if (data.hasOwnProperty('count') && data.count > 0) {
         colorCounts[colorToInc].value = data.count;
