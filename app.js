@@ -86,7 +86,7 @@ app.get('/users', function (req, res) {
   if (req.query.hasOwnProperty('userid')) {
     sendJsonResponse(res, req.query.userid);
   } else {
-    sendJsonResponse(res, 'no userid');
+    sendJsonResponse(res, 'no userid found');
   }
 });
 /* GET requests to /data return chart data values */
