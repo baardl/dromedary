@@ -4,7 +4,7 @@
     "https"
   ],
   "paths": {
-    "/users/{subpath}": {
+    "/users/{userid}": {
       "get": {
         "consumes": [
           "application/json"
@@ -14,7 +14,7 @@
         ],
         "parameters": [
           {
-            "name": "subpath",
+            "name": "userid",
             "in": "path",
             "required": true,
             "type": "string"
@@ -56,7 +56,7 @@
           "uri": "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:324320755747:function:${stageVariables.AppFunctionName}:${stageVariables.AppVersion}/invocations",
           "httpMethod": "POST",
           "requestParameters": {
-            "integration.request.path.subpath": "method.request.path.subpath"
+            "integration.request.path.subpath": "method.request.path.userid"
           },
           "type": "aws"
         }
