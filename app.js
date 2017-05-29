@@ -82,21 +82,12 @@ app.get('/config.json', function (req, res) {
 });
 
 app.get('/users', function (req, res) {
-  console.log('Request received from %s for /data', getClientIp(req));
-  var nocache = req.query.hasOwnProperty('nocache') ;
-  getChartData(req.headers.host,nocache,function (err, data) {
-    var chartData = data;
-    if (err) {
-      console.log(err);
-      sendJsonResponse(res, {error: err});
-    } else {
-      if (req.query.hasOwnProperty('userid')) {
-        sendJsonResponse(res, req.query.userid);
-      } else {
-        sendJsonResponse(res, "no userid");
-      }
-    }
-  });
+  console.log('Request received from %s for /users', getClientIp(req));
+  if (req.query.hasOwnProperty('userid')) {
+    sendJsonResponse(res, req.query.userid);
+  } else {
+    sendJsonResponse(res, 'no userid');
+  }
 });
 /* GET requests to /data return chart data values */
 app.get('/data', function (req, res) {
