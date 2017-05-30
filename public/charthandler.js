@@ -68,7 +68,12 @@ dromedaryChartHandler = function () {
   }
 
   function pollForUpdates() {
+    if ("undefined" === typeof myPieChart) {
+      console.log("myPieChart is undefined");
+      return;
+    }
     if (!myPieChart.hasOwnProperty('segments')) {
+      console.log("No segments in myPieChart");
       return;
     }
     $.getJSON(apiBaseurl+'data?countsOnly=true', {}, function(data, status) {
@@ -197,4 +202,3 @@ dromedaryChartHandler = function () {
     }
   }, 100);
 };
-
